@@ -13,15 +13,15 @@ import FileSaver from 'file-saver';
 
 // random background color
 const canvas = document.getElementById('out')
-canvas.width = 28
-canvas.height = 28
+var size = 28
+canvas.width = size
+canvas.height = size
 const ctx = canvas.getContext('2d')
 const randomizeButton = document.getElementById('randomize-button')
 const metadata = document.getElementById('metadata')
 randomizeButton.addEventListener('click', generateExample)
 
 const dimensions = document.getElementById('dimensions')
-var size = 28
 
 dimensions.addEventListener('change', ()=>{
     size = dimensions.value
@@ -35,6 +35,7 @@ function generateExample()
 {
     const shapeMetadata = randomize(ctx)
     metadata.innerHTML = JSON.stringify(shapeMetadata, null, 2).replace(/\n/g, '<br>').replace(/ /g, '&nbsp;')
+    metadata.scrollTop = 0
 }
 
 
@@ -45,8 +46,8 @@ function download()
 {
     const zip = new JSZip();
     const canvas = document.createElement('canvas')
-    canvas.width = width
-    canvas.height = height
+    canvas.width = size
+    canvas.height = size
     const ctx = canvas.getContext('2d')
     for(var i = 0; i < amount.value; i++)
     {
