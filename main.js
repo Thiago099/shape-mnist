@@ -19,6 +19,16 @@ const ctx = canvas.getContext('2d')
 const randomizeButton = document.getElementById('randomize-button')
 const metadata = document.getElementById('metadata')
 randomizeButton.addEventListener('click', generateExample)
+
+const dimensions = document.getElementById('dimensions')
+var size = 28
+
+dimensions.addEventListener('change', ()=>{
+    size = dimensions.value
+    canvas.width = size
+    canvas.height = size
+    generateExample()
+})
 generateExample()
 
 function generateExample()
@@ -35,8 +45,8 @@ function download()
 {
     const zip = new JSZip();
     const canvas = document.createElement('canvas')
-    canvas.width = 28
-    canvas.height = 28
+    canvas.width = width
+    canvas.height = height
     const ctx = canvas.getContext('2d')
     for(var i = 0; i < amount.value; i++)
     {
@@ -56,7 +66,7 @@ function download()
 function randomize(ctx)
 {
     ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16)
-    ctx.fillRect(0,0,28,28)
+    ctx.fillRect(0,0,size,size)
     const result = []
     // random number of elements
     var n = Math.floor(Math.random() * 10) + 1
@@ -64,11 +74,11 @@ function randomize(ctx)
     // for each element
     for (let i = 0; i < n; i++) {
         // random position
-        const x = Math.floor(Math.random() * 28)
-        const y = Math.floor(Math.random() * 28)
+        const x = Math.floor(Math.random() * size)
+        const y = Math.floor(Math.random() * size)
         // random size
-        const w = Math.floor(Math.random() * 20) + 5
-        const h = Math.floor(Math.random() * 20) + 5
+        const w = Math.floor(Math.random() * (size-5)) + 5
+        const h = Math.floor(Math.random() * (size-5)) + 5
         // random angle
         const a = Math.floor(Math.random() * 360)
         // random color
