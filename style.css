@@ -17,7 +17,7 @@ body{
   flex-direction: column;
   color:white;
 }
-.input{
+.button{
   background-color:transparent;
   color:white;
   border: 1px solid rgb(255, 255, 255);
@@ -29,16 +29,28 @@ body{
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-.input:hover{
+.button:hover{
   border-color: rgb(0, 255, 255);
   color: rgb(0, 255, 255);
+}
+.input{
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 5px 50px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(255, 255, 255);
+  background-color: rgb(39, 39, 39);
+}	
+.input,.button{
+  margin : 10px;
 }
 #metadata{
   display: flex;
   justify-content: space-between;
   align-items: center;
   overflow-y: scroll;
-
   align-items: normal;  
   margin-left: 10px;
   height: 500px;
