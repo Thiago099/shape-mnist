@@ -2,6 +2,7 @@
 
 ![image](https://github.com/Thiago099/shape-mnist/assets/66787043/c47e5631-c25f-413a-9472-13a84381925a)
 
+link: https://thiago099.github.io/shape-mnist/
 
 # how to run
 
